@@ -2,7 +2,7 @@ language: csharp
 solution: TimeTracking.sln
 install:
   - nuget restore TimeTracking.sln
-  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+  - nuget install NUnit.Runners -Version 3.5.0 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release TimeTracking.sln
   - mono ./testrunner/NUnit.Runners.*/tools/nunit-console.exe ./TimeTracking.Tests/bin/Release/TimeTracking.Tests.dll
