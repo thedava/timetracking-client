@@ -5,4 +5,10 @@ install:
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
   - xbuild /p:Configuration=Release TimeTracking.sln
-  # - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./TimeTracking.Tests/bin/Release/TimeTracking.Tests.dll
+  - mono ./testrunner/NUnit.Runners.*/tools/nunit-console.exe ./TimeTracking.Tests/bin/Release/TimeTracking.Tests.dll
+matrix:
+  include:
+    - dotnet: 1.0.0-preview2-003121
+      mono: none
+      env: DOTNETCORE=1
+    - mono: latest
